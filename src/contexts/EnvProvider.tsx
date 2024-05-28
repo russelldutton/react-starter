@@ -1,26 +1,34 @@
-import { FlagsProvider } from 'flagged';
-import { validateEnv } from 'lib';
 import { createContext, type PropsWithChildren, useContext } from 'react';
-import type { Env } from 'types';
+import { mergeDeep } from 'remeda';
+import { Env, PartialEnv } from 'types/Env.type';
+import { FeaturesProvider } from './FeaturesProvider';
 
 declare global {
   interface Window {
-    env: Env;
+    env: Record<string, unknown>;
   }
 }
 
 const EnvContext = createContext<Env | undefined>(undefined);
 EnvContext.displayName = 'Environment Variables Configuration';
 
-export const EnvProvider = ({ config, children }: PropsWithChildren<{ config?: Partial<Env> }>) => {
-  const windowConfig = window?.env ?? {};
+const defaultConfig = {
+  apiUrl: 'http://localhost:5001',
+  featureFlags: { devTools: true }
+} satisfies Env;
 
-  const envConfig = validateEnv(windowConfig, config);
-  const featureFlags = envConfig.featureFlags;
+export const EnvProvider = ({ children }: PropsWithChildren) => {
+  const windowConfig = window?.env ?? {};
+  const validatedConfig = PartialEnv.parse(windowConfig);
+
+  const mergedConfig = mergeDeep(validatedConfig, defaultConfig);
+  const featureFlags = mergedConfig.featureFlags;
+
+  const envConfig = Env.parse(mergedConfig);
 
   return (
     <EnvContext.Provider value={envConfig}>
-      <FlagsProvider features={featureFlags}>{children}</FlagsProvider>
+      <FeaturesProvider features={featureFlags}>{children}</FeaturesProvider>
     </EnvContext.Provider>
   );
 };

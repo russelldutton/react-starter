@@ -1,6 +1,11 @@
-import { type FeatureFlags } from 'types';
+import { z } from 'zod';
+import { FeatureFlag } from './FeatureFlags.type';
 
-export type Env = {
-  apiUrl: string;
-  featureFlags: FeatureFlags;
-};
+export const Env = z.object({
+  apiUrl: z.string(),
+  featureFlags: FeatureFlag
+});
+export type Env = z.infer<typeof Env>;
+
+export const PartialEnv = Env.partial();
+export type PartialEnv = z.infer<typeof PartialEnv>;

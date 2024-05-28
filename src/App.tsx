@@ -13,9 +13,7 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <EnvProvider
-      config={{ apiUrl: 'http://localhost:5001', featureFlags: { requestLogging: true } }}
-    >
+    <EnvProvider>
       <ServiceProvider>
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
