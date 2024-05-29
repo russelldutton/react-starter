@@ -1,14 +1,23 @@
 import { AppLayout } from 'components/AppLayout';
-import { Home, NotFound } from 'pages';
-import { Route, Routes } from 'react-router-dom';
+import { Home } from 'pages/Home';
+import { NotFound } from 'pages/NotFound';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-export const AppRoutes = () => {
-  return (
-    <Routes>
-      <Route path='/' element={<AppLayout />}>
-        <Route index element={<Home />} />
-      </Route>
-      <Route path='*' element={<NotFound />} />
-    </Routes>
-  );
-};
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      }
+    ]
+  },
+  {
+    path: '*',
+    element: <NotFound />
+  }
+]);
+
+export const AppRoutes = () => <RouterProvider router={router} />;
