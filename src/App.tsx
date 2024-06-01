@@ -1,8 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { EnvProvider } from 'contexts/EnvProvider';
-import { BrowserRouter } from 'react-router-dom';
-import { AppRoutes } from 'routes/AppRoutes';
-import './App.css';
+import { AppRoutes } from 'routes/Routes';
+// import './App.css';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -10,13 +10,17 @@ const queryClient = new QueryClient({
   }
 });
 
+const Fallback = () => <div>Something went wrong initialising the app!</div>;
+
 const App = () => {
   return (
-    <EnvProvider>
-      <QueryClientProvider client={queryClient}>
-        <AppRoutes />
-      </QueryClientProvider>
-    </EnvProvider>
+    <ErrorBoundary FallbackComponent={Fallback}>
+      <EnvProvider>
+        <QueryClientProvider client={queryClient}>
+          <AppRoutes />
+        </QueryClientProvider>
+      </EnvProvider>
+    </ErrorBoundary>
   );
 };
 

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import reactLogo from '../assets/react.svg';
+import { css } from 'css';
+import { Button } from 'components/atoms/Button';
 
 export const Home = () => {
-  const [count, setCount] = useState(500);
+  const [count, setCount] = useState(1);
 
   return (
     <div className='App'>
@@ -16,7 +18,7 @@ export const Home = () => {
       </div>
       <h1>Vite + React</h1>
       <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

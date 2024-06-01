@@ -14,10 +14,13 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@css-hooks/react": "^2.0.4",
+    "@css-hooks/recommended": "^2.0.4",
     "jotai": "^2.8.2",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-error-boundary": "^4.0.13",
     "react-hook-form": "^7.51.5",
     "react-router-dom": "^6.23.1",
     "remeda": "^1.61.0",
