@@ -2,7 +2,7 @@ import { useState } from 'react';
 import reactLogo from '../assets/react.svg';
 
 export const Home = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(500);
 
   return (
     <div className='App'>

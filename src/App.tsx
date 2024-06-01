@@ -14,9 +14,7 @@ const App = () => {
   return (
     <EnvProvider>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
+        <AppRoutes />
       </QueryClientProvider>
     </EnvProvider>
   );
