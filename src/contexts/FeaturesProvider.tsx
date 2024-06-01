@@ -1,5 +1,5 @@
 import { createContext, useContext, type PropsWithChildren } from 'react';
-import type { FeatureFlags } from 'types/FeatureFlags.type';
+import type { FeatureFlags } from 'types/feature-flags.type';
 
 const FeaturesContext = createContext<FeatureFlags | undefined>(undefined);
 

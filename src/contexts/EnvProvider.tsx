@@ -1,6 +1,6 @@
 import { createContext, type PropsWithChildren, useContext } from 'react';
 import { mergeDeep } from 'remeda';
-import { Env, PartialEnv } from 'types/Env.type';
+import { Env, PartialEnv } from 'types/env.type';
 import { FeaturesProvider } from './FeaturesProvider';
 
 declare global {

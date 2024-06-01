@@ -1,6 +1,6 @@
 import { AppLayout } from 'components/AppLayout';
-import { Home } from 'components/pages/Home';
-import { NotFound } from 'components/pages/NotFound';
+import { Home } from 'routes/Home';
+import { NotFound } from 'routes/NotFound';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([

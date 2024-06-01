@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { FeatureFlag } from './FeatureFlags.type';
+import { FeatureFlag } from './feature-flags.type';
 
 export const Env = z.object({
   apiUrl: z.string(),
