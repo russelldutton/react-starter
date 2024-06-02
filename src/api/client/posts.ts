@@ -1,4 +1,19 @@
-export const blogPosts = [
+export type Comment = {
+  username: string;
+  comment: string;
+  replies?: Comment[];
+};
+
+export type BlogPost = {
+  title: string;
+  author: string;
+  datePublished: string;
+  content: string;
+  comments: Comment[];
+  reposts: number;
+};
+
+export const blogPosts: Array<BlogPost> = [
   {
     title: 'The Future of Web Development',
     author: 'Alice Smith',
