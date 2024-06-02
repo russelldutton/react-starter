@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { EnvProvider } from 'contexts/EnvProvider';
 import { AppRoutes } from 'routes/Routes';
-// import './App.css';
 import { ErrorBoundary } from 'react-error-boundary';
 
 const queryClient = new QueryClient({

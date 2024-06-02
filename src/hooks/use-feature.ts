@@ -1,7 +1,7 @@
 import { useFeatures } from 'contexts/FeaturesProvider';
 import { type PropsWithChildren } from 'react';
 import { prop, pipe, drop, isBoolean, isNullish } from 'remeda';
-import type { Feature } from 'types';
+import type { Feature } from 'types/feature-flags.type';
 
 type RecursiveBoolean = {
   [key: string]: boolean | undefined | RecursiveBoolean;

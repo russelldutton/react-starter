@@ -1,19 +1,26 @@
 import { useState } from 'react';
 import reactLogo from '../assets/react.svg';
 import { css } from 'css';
-import { Button } from 'components/atoms/Button';
+import { Button } from 'components/atoms/button/Button';
+import { PageContent } from 'components/atoms/page-content/PageContent';
+
+const logoStyles = css({
+  height: '6em',
+  padding: '1.5em',
+  willChange: 'filter'
+});
 
 export const Home = () => {
   const [count, setCount] = useState(1);
 
   return (
-    <div className='App'>
+    <div style={css({ display: 'block', textAlign: 'center' })}>
       <div>
         <a href='https://vitejs.dev' target='_blank' rel='noreferrer'>
-          <img src='/vite.svg' className='logo' alt='Vite logo' />
+          <img src='/vite.svg' style={logoStyles} alt='Vite logo' />
         </a>
         <a href='https://reactjs.org' target='_blank' rel='noreferrer'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
+          <img src={reactLogo} style={logoStyles} className='logo react' alt='React logo' />
         </a>
       </div>
       <h1>Vite + React</h1>
