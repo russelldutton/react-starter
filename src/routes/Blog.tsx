@@ -5,7 +5,14 @@ export const Blog = () => {
   const { data: blogs } = useGetBlogPosts();
   return (
     <div style={css({})}>
-      <div style={css({ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '30%' })}>
+      <div
+        style={css({
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridAutoRows: 'minmax(100px, auto)',
+          gap: '16px'
+        })}
+      >
         {blogs.map(({ title, author, reposts }) => (
           <div
             style={css({
