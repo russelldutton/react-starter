@@ -34,8 +34,9 @@ export const RootLayout = () => {
       <div
         style={css({
           flexGrow: 1,
+          flexDirection: 'column',
           display: 'flex',
-          on: ($) => [$('child', { flexGrow: 1 })]
+          marginTop: '56px'
         })}
       >
         <ErrorBoundary fallback={<div>Something went wrong rendering that route!</div>}>

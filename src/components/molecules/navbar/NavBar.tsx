@@ -8,7 +8,11 @@ export const NavBar = ({ children }: PropsWithChildren) => {
       style={css({
         width: '100%',
         height: '56px',
-        backgroundColor: '#37393f'
+        backgroundColor: '#37393f',
+        position: 'fixed',
+        top: 0,
+        overflow: 'hidden',
+        zIndex: 1000
       })}
     >
       <ul style={css({ margin: 0, height: '100%', display: 'flex', gap: '16px' })}>{children}</ul>
