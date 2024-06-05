@@ -4,25 +4,33 @@ import { css } from 'css';
 export const Blog = () => {
   const { data: blogs } = useGetBlogPosts();
   return (
-    <div style={css({})}>
+    <div
+      style={css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' })}
+    >
+      <div style={{ textAlign: 'center' }}>
+        <h2>Some fake blog posts, loaded with Suspense!</h2>
+      </div>
       <div
         style={css({
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gridAutoRows: 'minmax(100px, auto)',
-          gap: '16px'
+          gridAutoRows: 'minmax(130px, auto)',
+          gap: '16px',
+          width: '60%'
         })}
       >
         {blogs.map(({ title, author, reposts }) => (
           <div
+            key={title}
             style={css({
               display: 'flex',
               gap: '24px',
               justifyContent: 'space-between',
-              backgroundColor: 'lightgrey',
+              background: 'linear-gradient(0deg, rgb(64 60 127) 0%, rgb(108, 142, 149) 100%)',
               borderRadius: '8px',
               padding: '16px',
-              color: '#222'
+              color: '#FFF',
+              cursor: 'pointer'
             })}
           >
             <div>

@@ -36,7 +36,7 @@ export const RootLayout = () => {
           flexGrow: 1,
           flexDirection: 'column',
           display: 'flex',
-          marginTop: '56px'
+          marginTop: '64px'
         })}
       >
         <ErrorBoundary fallback={<div>Something went wrong rendering that route!</div>}>

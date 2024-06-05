@@ -7,6 +7,7 @@ const blogPostOptions = () =>
     queryFn: fetchAllBlogPosts,
     staleTime: 1000 * 5
   });
+
 export const useGetBlogPosts = () => {
   return useSuspenseQuery(blogPostOptions());
 };

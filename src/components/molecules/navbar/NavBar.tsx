@@ -7,7 +7,7 @@ export const NavBar = ({ children }: PropsWithChildren) => {
     <nav
       style={css({
         width: '100%',
-        height: '56px',
+        height: '64px',
         backgroundColor: '#37393f',
         position: 'fixed',
         top: 0,
