@@ -1,10 +1,7 @@
-import { ContentLoader } from 'components/atoms/content-loader/ContentLoader';
 import { PageContent } from 'components/atoms/page-content/PageContent';
 import { NavBar } from 'components/molecules/navbar/NavBar';
 import { QueryContainer } from 'components/molecules/query-container/QueryContainer';
 import { css } from 'css';
-import { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet } from 'react-router-dom';
 
 const links = [
