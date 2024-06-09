@@ -1,6 +1,6 @@
 import { blogPosts, type BlogPost } from './posts';
 
-const delay = () => Math.random() * 800 + 300;
+const delay = () => Math.random() * 500 + 300;
 
 export const fetchAllBlogPosts = (): Promise<Array<Pick<BlogPost, 'id' | 'title' | 'author'>>> =>
   new Promise((resolve) => {

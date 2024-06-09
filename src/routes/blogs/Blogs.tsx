@@ -1,9 +1,18 @@
-import { useGetBlogPosts } from 'api/hooks/blog-posts';
+import { blogsOptions } from 'api/hooks/blog-posts';
 import { css } from 'css';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import type { loader } from './loader';
+import { useQuery } from '@tanstack/react-query';
+import { QueryContainer } from 'components/molecules/query-container/QueryContainer';
 
 export const Blogs = () => {
-  const { data: blogs } = useGetBlogPosts();
+  const initialData = useLoaderData() as Awaited<ReturnType<ReturnType<typeof loader>>>;
+
+  const { data: blogs } = useQuery({
+    ...blogsOptions(),
+    initialData
+  });
+
   return (
     <div
       style={css({ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' })}
@@ -42,6 +51,9 @@ export const Blogs = () => {
           </Link>
         ))}
       </div>
+      <QueryContainer>
+        <Outlet />
+      </QueryContainer>
     </div>
   );
 };

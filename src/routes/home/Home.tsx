@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
+import reactLogo from '../../assets/react.svg';
 import { css } from 'css';
 import { Button } from 'components/atoms/button/Button';
-import { PageContent } from 'components/atoms/page-content/PageContent';
 
 const logoStyles = css({
   height: '6em',

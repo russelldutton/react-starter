@@ -1,13 +1,18 @@
-import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
-import { fetchAllBlogPosts } from 'api/client/api-client';
+import { queryOptions } from '@tanstack/react-query';
+import { fetchAllBlogPosts, fetchBlogPost } from 'api/client/api-client';
 
-const blogPostOptions = () =>
+const DEFAULT_STALE_TIME = 1000 * 60 * 5;
+
+export const blogsOptions = () =>
   queryOptions({
     queryKey: ['blogs'],
     queryFn: fetchAllBlogPosts,
-    staleTime: 1000 * 5
+    staleTime: DEFAULT_STALE_TIME
   });
 
-export const useGetBlogPosts = () => {
-  return useSuspenseQuery(blogPostOptions());
-};
+export const blogPostOptions = (id: number) =>
+  queryOptions({
+    queryKey: ['blogs', id],
+    queryFn: () => fetchBlogPost(id),
+    staleTime: DEFAULT_STALE_TIME
+  });
